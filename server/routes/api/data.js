@@ -10,6 +10,31 @@ router.get('/test', (req, res) => res.send('data route testing!'));
 
 // -------------------> Sanctuary Endpoints Below
 
+router.get('/records', (req, res) => {
+  // Step 1: Retrieve filter Parameters
+  console.log(req.query);
+  const disease = req.query.disease;
+  const sex = req.query.sex;
+  const age = req.query.age;
+  const race = req.query.race;
+
+  console.log("disease", disease);
+  console.log("sex", sex);
+  console.log("age", age);
+  console.log("race", race);
+
+  // Step 2: Retrieve all individual collection data
+  let diseaseData = [];
+  let sexData = [];
+  let ageData = [];
+  let raceData = [];
+
+
+
+  // Step 3: Select data to be returned
+
+  res.send('returning records!');
+});
 
 // -------------------> Leaving code below for reference
 
