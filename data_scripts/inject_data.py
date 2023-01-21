@@ -20,8 +20,22 @@ headers = {
     'Authorization': 'Bearer EST0eae79ed-3ff2-414a-a139-3f5564be0344ARY'
 }
 
-fileName = './data/' + fileNames[1]
+# generate tags based on filename
+tags = fileNames[1].split('-')
+tags[3] = tags[3][:-4:]
+disease = tags[0]
+sex = tags[1]
+age = tags[2]
+race = tags[3]
+
+print(disease, sex, age, race)
+
+# fileName = './data/' + fileNames[1]
+fileName = 'test.txt'
 f = {'data': open(fileName, 'rb')}
 
+# retrieve estuaryId
 res = requests.post(url, headers=headers, files=f)
-print(res.text)
+estuaryId = res.json()["estuaryId"]
+print("estuaryId", estuaryId)
+
