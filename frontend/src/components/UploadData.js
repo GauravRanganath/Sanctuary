@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import BasicTextFields from "./Input";
+import NavBar from "./Navbar"
 
 function UploadData() {
     return (
