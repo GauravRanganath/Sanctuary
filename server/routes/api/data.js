@@ -163,17 +163,22 @@ router.get('/records', async (req, res) => {
     urls.push(url);
   });
 
-  const requests = urls.map((url) => axios.get(url, config));
+  const requests = urls.map((url) => Axios.get(url, config));
 
-  axios.all(requests).then((responses) => {
+  Axios.all(requests).then((responses) => {
+    // console.log(responses);
     responses.forEach(resp => {
       // console.log("resp.data:", resp.data);
-      let temp = resp.data;
-      let arrayOfIds = []
-      temp.forEach(x => {
-        arrayOfIds.push(x.cid);
-      });
-      collectionsAndContents.push(arrayOfIds);
+      if (resp.data) {
+        let temp = resp.data;
+        let arrayOfIds = []
+        resp.data.forEach(x => {
+          arrayOfIds.push(x.cid);
+        });
+        collectionsAndContents.push(arrayOfIds);
+      } else {
+        collectionsAndContents.push([]);
+      }
     });
   }).then(x => {
     console.log("collectionsAndContents:", collectionsAndContents);
