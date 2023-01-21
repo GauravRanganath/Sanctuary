@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Card from "./Card";
+import SearchBar from "./SearchBar";
+import NavBar from "./Navbar";
 
 function ViewData() {
   // Retrieve Estuary files
@@ -24,7 +27,12 @@ function ViewData() {
 
   return (
     <div>
-      <p>{test}</p>
+      <NavBar></NavBar>
+      <h1>Welcome to Sanctuary</h1>
+      <SearchBar></SearchBar>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
     </div>
   );
 }

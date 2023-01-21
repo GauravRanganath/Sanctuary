@@ -5,6 +5,7 @@ import BasicTextFields from "./Input";
 function UploadData() {
     return (
       <div>
+        <NavBar></NavBar>
         <h1>Upload Data</h1>
 
         <Button variant="primary">Primary</Button>{' '}
@@ -27,4 +28,3 @@ function UploadData() {
 }
   
 export default UploadData;
-  
