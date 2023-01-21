@@ -1,0 +1,202 @@
+[
+  {
+    "createdAt": "2023-01-21T06:24:17.280098Z",
+    "uuid": "342fc333-997b-4d08-8ad2-8a693bfc4598",
+    "name": "string",
+    "description": "string",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T16:32:07.565197Z",
+    "uuid": "2ecf15f2-0bc6-44db-9b15-e5859ad69435",
+    "name": "rama1",
+    "description": "rama1desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:28:38.346488Z",
+    "uuid": "15259ca4-1918-4420-ac3f-1c8eedc692a9",
+    "name": "caucasian",
+    "description": "caucasian_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:32:02.218041Z",
+    "uuid": "a6185f93-139d-4f0d-ba13-d54016d66c6d",
+    "name": "lung_cancer",
+    "description": "lung_cancer_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:32:10.959031Z",
+    "uuid": "45f0ef77-ce0e-44a0-8ec6-17b9dae601f2",
+    "name": "osteoporosis",
+    "description": "osteoporosis_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:33:45.155615Z",
+    "uuid": "0e215c75-ea14-49e2-80c3-1b5eba937e49",
+    "name": "female",
+    "description": "female_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T06:26:01.567762Z",
+    "uuid": "695277b4-1794-453f-955c-96f4009b5274",
+    "name": "collection1",
+    "description": "collection1desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T16:32:13.301189Z",
+    "uuid": "9531a715-d8cb-4808-a490-18056108a8a6",
+    "name": "rama2",
+    "description": "rama2desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:28:49.085575Z",
+    "uuid": "1d9bb3eb-ecd0-4f4c-a082-3be829a96e4d",
+    "name": "african_american",
+    "description": "african_american_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T06:31:42.004704Z",
+    "uuid": "ef26a93d-1bb0-45a3-85d6-2223e923a153",
+    "name": "collection1",
+    "description": "collection1desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T16:52:43.068992Z",
+    "uuid": "7c67557a-e627-415e-bbc8-d0f055819131",
+    "name": "heart_disease",
+    "description": "",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:28:57.883235Z",
+    "uuid": "3863ec9e-82f6-4d52-8bb4-134951e4a375",
+    "name": "asian",
+    "description": "asian_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T06:37:34.118489Z",
+    "uuid": "bc1960f9-32cb-4fb9-bfd0-824e726c8a53",
+    "name": "col2",
+    "description": "col2desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T16:52:43.067709Z",
+    "uuid": "570b6d71-f4ec-4b9b-8a0c-d61efbc53a3a",
+    "name": "lung_disease",
+    "description": "",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:29:04.71795Z",
+    "uuid": "ba9e2645-20e9-42a0-8cf9-4a56239b59bc",
+    "name": "native",
+    "description": "native_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:29:11.290486Z",
+    "uuid": "680b3530-9961-4de4-9f65-4af1c15166db",
+    "name": "hispanic",
+    "description": "hispanic_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:29:20.808473Z",
+    "uuid": "ba74b049-8962-4be8-a3df-aaac371557e5",
+    "name": "pacific_islander",
+    "description": "pacific_islander_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:32:39.835283Z",
+    "uuid": "c05f6553-f2db-419a-aa05-bb706d176034",
+    "name": "leaukimia",
+    "description": "leaukimia_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:33:40.693712Z",
+    "uuid": "944a210b-1368-441f-ae10-5950c4f33dbd",
+    "name": "male",
+    "description": "male_desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T17:54:31.677024Z",
+    "uuid": "4acddc2a-4a68-49fd-9533-7eda07e23af7",
+    "name": "rama3",
+    "description": "rama3desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:22:25.280581Z",
+    "uuid": "d8b2a132-d566-46f2-9d2f-803404deda03",
+    "name": "a1",
+    "description": "a1desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:22:36.883225Z",
+    "uuid": "9f5f0dc7-8f39-4260-bc2e-7315615b8f55",
+    "name": "a2",
+    "description": "a2desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:22:44.589944Z",
+    "uuid": "b6c9ba35-0ac6-4250-a80f-544bedecb01d",
+    "name": "a3",
+    "description": "a3desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:22:56.923547Z",
+    "uuid": "b39791d8-5029-42a0-8119-9cf0ed008642",
+    "name": "a4",
+    "description": "a4desc",
+    "userId": 727,
+    "cid": ""
+  },
+  {
+    "createdAt": "2023-01-21T19:24:11.148076Z",
+    "uuid": "87ee9836-0d00-4eca-9461-7756e320f61f",
+    "name": "a5",
+    "description": "a5desc",
+    "userId": 727,
+    "cid": ""
+  }
+]
