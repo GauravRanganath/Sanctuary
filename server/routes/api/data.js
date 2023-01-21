@@ -19,16 +19,11 @@ router.get('/test', (req, res) => res.send('data route testing!'));
 
 router.get('/records', async (req, res) => {
   // Step 1: Retrieve filter Parameters
-  console.log(req.query);
+  // console.log(req.query);
   const disease = req.query.disease;
   const sex = req.query.sex;
   const age = req.query.age;
   const race = req.query.race;
-
-  console.log("disease", disease);
-  console.log("sex", sex);
-  console.log("age", age);
-  console.log("race", race);
 
   // Step 2: Retrieve all individual collection data
   let diseaseData = [];
@@ -36,11 +31,28 @@ router.get('/records', async (req, res) => {
   let ageData = [];
   let raceData = [];
 
-  // Step 3: Select data to be returned
-  console.log(config);
-  let temp = await Axios.get('https://api.estuary.tech/collections/', config);
+  if (disease) {
+    diseaseData = disease.split(",");
+  }
+  if (sex) {
+    sexData = sex.split(",");
+  }
+  if (age) {
+    ageData = age.split(",");
+  }
+  if (race) {
+    raceData = race.split(",");
+  }
 
-  console.log(temp.data);
+  console.log("disease", disease, diseaseData);
+  console.log("sex", sex, sexData);
+  console.log("age", age, ageData);
+  console.log("race", race, raceData);
+
+  // Step 3: Select data to be returned
+  let temp = await Axios.get('https://api.estuary.tech/collections/', config);
+  const collections = temp.data
+  // console.log(collections);
 
   res.send('returning records!');
 });
