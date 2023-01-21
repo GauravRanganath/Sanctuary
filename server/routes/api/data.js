@@ -5,7 +5,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const fs = require('fs');
 dotenv.config();
-const axios = require("axios").default;
+const Axios = require("axios").default;
 const fetch = require("node-fetch");
 const fileUpload = require('express-fileupload');
 const router = express.Router();
@@ -42,7 +42,7 @@ async function uploadFile(
   const form = new FormData()
   await form.append('data', fs.createReadStream(filepath))
   await form.append('filename', filename)
-  return axios.post("https://api.estuary.tech/content/add", form, {headers: {
+  return Axios.post("https://api.estuary.tech/content/add", form, {headers: {
     Authorization: `Bearer ${process.env.BEARER_KEY}`,
     'Content-Type': 'multipart/form-data',
   }})
@@ -64,7 +64,7 @@ router.post("/upload", async (req, res, next) =>{
   );
   let imageFile = req.files.file;
   var new_filepath = `${__dirname}/public/${req.body.filename}`
-  let collection_names = await axios.get("https://api.estuary.tech/collections", config);
+  let collection_names = await Axios.get("https://api.estuary.tech/collections", config);
   collection_names = collection_names.data.map(value => Object({"name":value.name,"id":value.uuid}))
   var disease_tags = JSON.parse(req.body.disease_tags)
   var demographic_tags = JSON.parse(req.body.demographic_tags)
@@ -83,7 +83,7 @@ router.post("/upload", async (req, res, next) =>{
           post_body = {
             "contentIDs":[contentId]
           }
-          axios.post(`https://api.estuary.tech/collections/${tag_id}`, post_body, {
+          Axios.post(`https://api.estuary.tech/collections/${tag_id}`, post_body, {
             headers: { Authorization: `Bearer ${process.env.BEARER_KEY}` }
           }).then(
             data => {
