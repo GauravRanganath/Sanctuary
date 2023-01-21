@@ -1,23 +1,20 @@
-// routes/api/books.js
+// routes/api/data.js
 
 const express = require('express');
 const router = express.Router();
 
-// Load Book model
-const Book = require('../../models/Book');
-
-// ------------------------> SANCTUARY endpoints begin
-
-
-
-// ------------------------> SANCTUARY endpoints end
-
-// CODE FROM BOILERPLATE
-
 // @route GET api/books/test
 // @description tests books route
 // @access Public
-router.get('/test', (req, res) => res.send('book route testing!'));
+router.get('/test', (req, res) => res.send('data route testing!'));
+
+// -------------------> Sanctuary Endpoints Below
+
+
+// -------------------> Leaving code below for reference
+
+// Load Book model
+const Book = require('../../models/Book');
 
 // @route GET api/books
 // @description Get all books
