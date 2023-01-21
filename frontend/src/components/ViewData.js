@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { width } from "@mui/system";
 
 function ViewData() {
   // Retrieve Estuary files
@@ -33,24 +34,61 @@ function ViewData() {
     <div>
       <NavBar></NavBar>
       <Container>
+        <br></br>
         <Row>
           <Col>
-            <h1>Welcome to Sanctuary</h1>
-            <SearchBar></SearchBar>
-            <Card style={{ width: "18rem" }}>
+            <h1>View Medical Data</h1>
+          </Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col>
+            <SearchBar style={{width: "100%"}}></SearchBar>
+          </Col>
+        </Row>
+        <br></br>
+        <Row md={3}>
+          <Col>
+            <Card>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>Alzeimhers</Card.Title>
                 <Card.Text>
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">View Data</Button>
               </Card.Body>
             </Card>
-            <Button variant="primary">Go somewhere</Button>
+          </Col>
+          <Col>
+            <Card>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Cancer</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">View Data</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Dementia</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">View Data</Button>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
+
       </Container>
     </div>
   );
