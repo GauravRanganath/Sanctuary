@@ -2,6 +2,13 @@
 
 const express = require('express');
 const router = express.Router();
+const dotenv = require('dotenv');
+dotenv.config();
+const Axios = require('axios').default;
+
+const config = {
+  headers: { Authorization: `Bearer ${process.env.BEARER_KEY}` }
+};
 
 // @route GET api/books/test
 // @description tests books route
@@ -10,7 +17,7 @@ router.get('/test', (req, res) => res.send('data route testing!'));
 
 // -------------------> Sanctuary Endpoints Below
 
-router.get('/records', (req, res) => {
+router.get('/records', async (req, res) => {
   // Step 1: Retrieve filter Parameters
   console.log(req.query);
   const disease = req.query.disease;
@@ -29,9 +36,11 @@ router.get('/records', (req, res) => {
   let ageData = [];
   let raceData = [];
 
-
-
   // Step 3: Select data to be returned
+  console.log(config);
+  let temp = await Axios.get('https://api.estuary.tech/collections/', config);
+
+  console.log(temp.data);
 
   res.send('returning records!');
 });
