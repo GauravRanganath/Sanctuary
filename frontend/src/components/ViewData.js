@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import SearchBar from "./SearchBar";
+import NavBar from "./Navbar";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function ViewData() {
   // Retrieve Estuary files
@@ -24,7 +31,64 @@ function ViewData() {
 
   return (
     <div>
-      <p>{test}</p>
+      <NavBar></NavBar>
+      <Container>
+        <br></br>
+        <Row>
+          <Col>
+            <h1>View Medical Data</h1>
+          </Col>
+        </Row>
+        <br></br>
+        <Row>
+          <Col>
+            <SearchBar style={{width: "100%"}}></SearchBar>
+          </Col>
+        </Row>
+        <br></br>
+        <Row md={3}>
+          <Col>
+            <Card>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Alzeimhers</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">View Data</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Cancer</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">View Data</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Dementia</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">View Data</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+
+      </Container>
     </div>
   );
 }
