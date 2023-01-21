@@ -6,6 +6,14 @@ const router = express.Router();
 // Load Book model
 const Book = require('../../models/Book');
 
+// ------------------------> SANCTUARY endpoints begin
+
+
+
+// ------------------------> SANCTUARY endpoints end
+
+// CODE FROM BOILERPLATE
+
 // @route GET api/books/test
 // @description tests books route
 // @access Public
