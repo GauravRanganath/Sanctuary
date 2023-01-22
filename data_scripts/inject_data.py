@@ -1,11 +1,11 @@
 import requests
 
 fileNames = ['rama15-rama11-rama12-rama13.txt',
+             'rama14-rama11-rama12-rama13.txt',
              'rama15-rama11-rama12-rama13.txt',
+             'rama14-rama11-rama12-rama13.txt',
              'rama15-rama11-rama12-rama13.txt',
-             'rama15-rama11-rama12-rama13.txt',
-             'rama15-rama11-rama12-rama13.txt',
-             'rama15-rama11-rama12-rama13.txt',
+             'rama14-rama11-rama12-rama13.txt',
              'rama15-rama11-rama12-rama13.txt'
              ]
 
@@ -41,7 +41,7 @@ classifiication_dict = {
     "rama14": "235ec7e7-ae8d-4efc-bde8-36eea92c9e4b"
 }
 
-url = "https://api.estuary.tech/content/add"
+
 
 headers = {
     # 'Content-Type': 'multipart/form-data',
@@ -49,40 +49,55 @@ headers = {
     'Authorization': 'Bearer EST0eae79ed-3ff2-414a-a139-3f5564be0344ARY'
 }
 
-i = -1
+for x in fileNames:
+    print(">>>> Uploading:", x)
+    
+    # generate tags based on filename
+    tags = x.split('-')
+    tags[3] = tags[3][:-4:]
+    
+    disease = tags[0]
+    sex = tags[1]
+    age = tags[2]
+    race = tags[3]
 
-# generate tags based on filename
-tags = fileNames[i].split('-')
-tags[3] = tags[3][:-4:]
-disease = tags[0]
-sex = tags[1]
-age = tags[2]
-race = tags[3]
+    print(disease, sex, age, race)
 
-print(disease, sex, age, race)
+    fileName = './data/' + x
+    f = {'data': open(fileName, 'rb')}
 
-fileName = './data/' + fileNames[i]
-f = {'data': open(fileName, 'rb')}
+    # upload content and retrieve estuaryId
+    url = "https://api.estuary.tech/content/add"
+    res = requests.post(url, headers=headers, files=f)
+    print("url", res.status_code)
+    
+    if res.status_code == 200:
+        estuaryId = res.json()["estuaryId"]
+        print("estuaryId", estuaryId)
 
-# upload content and retrieve estuaryId
-res = requests.post(url, headers=headers, files=f)
-estuaryId = res.json()["estuaryId"]
-print("estuaryId", estuaryId)
+        # add to collections
+        url_disease = "https://api.estuary.tech/collections/" + \
+            classifiication_dict[disease]
+        url_sex = "https://api.estuary.tech/collections/" + classifiication_dict[sex]
+        url_age = "https://api.estuary.tech/collections/" + classifiication_dict[age]
+        url_race = "https://api.estuary.tech/collections/" + classifiication_dict[race]
 
-# add to collections
-url_disease = "https://api.estuary.tech/collections/" + \
-    classifiication_dict[disease]
-url_sex = "https://api.estuary.tech/collections/" + classifiication_dict[sex]
-url_age = "https://api.estuary.tech/collections/" + classifiication_dict[age]
-url_race = "https://api.estuary.tech/collections/" + classifiication_dict[race]
+        body = {
+            "contentIDs": [
+                estuaryId
+            ]
+        }
 
-body = {
-    "contentIDs": [
-        estuaryId
-    ]
-}
-
-res = requests.post(url_disease, headers=headers, json=body)
-res = requests.post(url_sex, headers=headers, json=body)
-res = requests.post(url_age, headers=headers, json=body)
-res = requests.post(url_race, headers=headers, json=body)
+        res = requests.post(url_disease, headers=headers, json=body)
+        print("url_disease", res.status_code)
+        
+        res = requests.post(url_sex, headers=headers, json=body)
+        print("url_sex", res.status_code)
+        
+        res = requests.post(url_age, headers=headers, json=body)
+        print("url_age", res.status_code)
+        
+        res = requests.post(url_race, headers=headers, json=body)
+        print("url_race", res.status_code)
+        
+        print("Done!")
