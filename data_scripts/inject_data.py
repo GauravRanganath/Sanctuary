@@ -1,4 +1,5 @@
 import requests
+import time
 
 fileNames = ['rama15-rama11-rama12-rama13.txt',
              'rama14-rama11-rama12-rama13.txt',
@@ -101,3 +102,6 @@ for x in fileNames:
         print("url_race", res.status_code)
         
         print("Done!")
+        
+        # put a timer
+        time.sleep(5)
