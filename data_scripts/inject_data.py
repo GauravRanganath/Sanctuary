@@ -1,14 +1,8 @@
 import requests
 import time
 
-fileNames = ['rama15-rama11-rama12-rama13.txt',
-             'rama14-rama11-rama12-rama13.txt',
-             'rama15-rama11-rama12-rama13.txt',
-             'rama14-rama11-rama12-rama13.txt',
-             'rama15-rama11-rama12-rama13.txt',
-             'rama14-rama11-rama12-rama13.txt',
-             'rama15-rama11-rama12-rama13.txt'
-             ]
+fileNames = ['heart_disease-female-age60-asian.txt',
+             'heart_disease-male-age24-caucasian.txt']
 
 classifiication_dict = {
     "string": "342fc333-997b-4d08-8ad2-8a693bfc4598",
