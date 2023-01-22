@@ -11,6 +11,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import DescriptionCard from "./DescriptionCard";
 import { RotatingSquare } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 function ViewDisease() {
   const { disease } = useParams();
@@ -231,7 +232,9 @@ function ViewDisease() {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </Card.Text>
-                <Button variant="primary">Download Data</Button>
+                <Link to={"/view-data/" + disease + "/download"}>
+                    <Button variant="primary">Download Data</Button>
+                </Link>
               </Card.Body>
             </Card>
             <RotatingSquare
