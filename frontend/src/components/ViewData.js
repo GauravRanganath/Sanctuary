@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 import image_lung from "../img/lung_cancer.jpeg";
 import image_heart from "../img/heart_disease.jpeg";
 import image_osteoporosis from "../img/osteoporosis.jpeg";
@@ -61,7 +62,9 @@ function ViewData() {
                   "Lung cancer, also known as lung carcinoma is a malignant lung tumor 
                   characterized by uncontrolled cell growth in tissues of the lung."
                 </Card.Text>
-                <Button variant="primary">View Data</Button>
+                <Link to="/view-data/lung_cancer">
+                  <Button variant="primary">View Data</Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>
@@ -76,7 +79,10 @@ function ViewData() {
                   "Cardiovascular disease is a class of diseases that involve the heart or blood vessels.
                   For example angina and myocardial infarction."
                 </Card.Text>
-                <Button variant="primary">View Data</Button>
+                <Link to="/view-data/heart_disease">
+                  <Button variant="primary">View Data</Button>
+                </Link>
+                
               </Card.Body>
             </Card>
           </Col>
@@ -91,7 +97,9 @@ function ViewData() {
                   "Osteoporosis is a systemic skeletal disorder characterized by low bone mass, micro-architectural 
                   deterioration of bone tissue leading to bone fragility."
                 </Card.Text>
-                <Button variant="primary">View Data</Button>
+                <Link to="/view-data/osteoporosis">
+                  <Button variant="primary">View Data</Button>
+                </Link>
               </Card.Body>
             </Card>
           </Col>

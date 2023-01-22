@@ -19,10 +19,10 @@ function Home() {
         <br></br>
         <div>
           <Link to="/upload-data">
-            <Button variant="primary" size="lg" style={{margin: "10px"}}>Upload Data</Button>
+            <Button variant="primary" size="lg" style={{marginRight: "20px"}}>Upload Data</Button>
           </Link>
           <Link to="/view-data">
-            <Button variant="primary" size="lg" style={{margin: "10px"}}>View Data</Button>
+            <Button variant="primary" size="lg">View Data</Button>
           </Link>
         </div>
       </Container>
