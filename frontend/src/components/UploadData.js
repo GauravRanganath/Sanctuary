@@ -7,7 +7,6 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import React from "react";
 import axios from "axios";
-import Alert from "react-bootstrap/alert";
 
 function UploadData() {
 

@@ -45,14 +45,14 @@ function ViewRequests() {
     }
 ]
 
-  // const getRequests = async () => {
-  //   await axios.get("http://localhost:8082/api/data/allRequestData").then((resp) => {
-  //     setRequests(resp.data);
-  //   });
-  // }
-  const getRequests = () => {
-    setRequests(sample)
+  const getRequests = async () => {
+    await axios.get("http://localhost:8082/api/data/allRequestData").then((resp) => {
+      setRequests(resp.data);
+    });
   }
+  // const getRequests = () => {
+  //   setRequests(sample)
+  // }
 
   useEffect(() => {
     getRequests();
