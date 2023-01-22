@@ -164,6 +164,8 @@ router.get('/records', async (req, res) => {
     urls.push(url);
   });
 
+  let mapCidToName = {};
+
   const requests = urls.map((url) => Axios.get(url, config));
 
   Axios.all(requests).then((responses) => {
@@ -172,8 +174,10 @@ router.get('/records', async (req, res) => {
       // console.log("resp.data:", resp.data);
       if (resp.data) {
         let temp = resp.data;
+        // console.log(temp);
         let arrayOfIds = []
         resp.data.forEach(x => {
+          mapCidToName[x.cid] = x.name;
           arrayOfIds.push(x.cid);
         });
         collectionsAndContents.push(arrayOfIds);
@@ -198,7 +202,16 @@ router.get('/records', async (req, res) => {
     });
 
     console.log("result:", result);
-    res.send(result);
+
+    let finalResult = [];
+
+    result.forEach((x) => {
+      finalResult.push([x, mapCidToName[x]]);
+    })
+
+    console.log("finalResult:", finalResult);
+
+    res.send(finalResult);
   });
 });
 

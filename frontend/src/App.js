@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import NewSignup from "./components/NewSignUp";
 import React, { useState } from 'react';
+import RequestData from './components/RequestData';
 
 const App = () => {
   const [setting1value, setSetting1value] = useState('initialValue1');
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/newsignup" element={<NewSignup />} />
+          <Route path='/request-data' element={<RequestData />} />
         </Routes>
       </div>
     </Router>
