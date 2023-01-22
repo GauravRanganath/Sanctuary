@@ -31,7 +31,7 @@ function UploadData() {
     formData.append("filename", file.name);
     formData.append("disease_tags", JSON.stringify([disease.value]));
     formData.append("demographic_tags", JSON.stringify([bsex.value]));
-    formData.append("age_tags", JSON.stringify([age.value]));
+    formData.append("age_tags", JSON.stringify(["age".concat(age.value)]));
     formData.append("sex_tags", JSON.stringify([ethnicity.value]));
 
     const resp = await axios.post("http://localhost:8082/api/data/upload", formData, {
@@ -78,9 +78,10 @@ function UploadData() {
           <Col>
             <Form.Select id="selected-disease" aria-label="Default select disease" style={{width: "100%", padding: "10px"}}>
               <option>Select disease</option>
-              <option value="Alzeimhers">Alzeimhers</option>
-              <option value="Cancer">Cancer</option>
-              <option value="Dementia">Dementia</option>
+              <option value="lung_cancer">Lung Cancer</option>
+              <option value="heart_disease">Heart Disease</option>
+              <option value="osteoporosis">Osteoporosis</option>
+              <option value="leukemia">Leukemia</option>
             </Form.Select>
           </Col>
         </Row>
@@ -89,8 +90,8 @@ function UploadData() {
           <Col>
             <Form.Select id="selected-bsex" aria-label="Default select biological sex" style={{width: "100%", padding: "10px"}}>
               <option>Select biological sex</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </Form.Select>
           </Col>
         </Row>
@@ -99,9 +100,12 @@ function UploadData() {
           <Col>
             <Form.Select id="selected-ethnicity" aria-label="Default select ethnicity" style={{width: "100%", padding: "10px"}}>
               <option>Select ethnicity</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="caucasian">Caucasian</option>
+              <option value="african_american">African American</option>
+              <option value="asian">Asian</option>
+              <option value="native">Native</option>
+              <option value="hispanic">Hispanic</option>
+              <option value="pacific_islander">Pacific Islander</option>
             </Form.Select>
           </Col>
         </Row>
