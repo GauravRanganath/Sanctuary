@@ -163,17 +163,26 @@ router.get('/records', async (req, res) => {
     urls.push(url);
   });
 
-  const requests = urls.map((url) => axios.get(url, config));
+  let mapCidToName = {};
 
-  axios.all(requests).then((responses) => {
+  const requests = urls.map((url) => Axios.get(url, config));
+
+  Axios.all(requests).then((responses) => {
+    // console.log(responses);
     responses.forEach(resp => {
       // console.log("resp.data:", resp.data);
-      let temp = resp.data;
-      let arrayOfIds = []
-      temp.forEach(x => {
-        arrayOfIds.push(x.cid);
-      });
-      collectionsAndContents.push(arrayOfIds);
+      if (resp.data) {
+        let temp = resp.data;
+        // console.log(temp);
+        let arrayOfIds = []
+        resp.data.forEach(x => {
+          mapCidToName[x.cid] = x.name;
+          arrayOfIds.push(x.cid);
+        });
+        collectionsAndContents.push(arrayOfIds);
+      } else {
+        collectionsAndContents.push([]);
+      }
     });
   }).then(x => {
     console.log("collectionsAndContents:", collectionsAndContents);
@@ -192,7 +201,16 @@ router.get('/records', async (req, res) => {
     });
 
     console.log("result:", result);
-    res.send(result);
+
+    let finalResult = [];
+
+    result.forEach((x) => {
+      finalResult.push([x, mapCidToName[x]]);
+    })
+
+    console.log("finalResult:", finalResult);
+
+    res.send(finalResult);
   });
 });
 
