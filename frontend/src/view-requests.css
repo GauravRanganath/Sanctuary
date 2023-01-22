@@ -1,0 +1,38 @@
+.main_example_code{
+    background-color: #FFFFFF;
+    margin-left:0px;margin-right:0px;margin-top:20px;margin-bottom:10px;
+    border-radius: 25px;
+    box-shadow:1.5px 1.5px 1.5px 1.5px;
+  }
+  
+  .give_margin{
+    margin:30px;margin-top:0px;margin-bottom:20px;
+  }
+  
+  .give_top_padding{
+    padding-top:20px;
+  }
+  
+  pre{
+    background-color: #FFF;
+    padding:10px;
+  }
+  
+  body{
+    background-color: #FFF;
+  }
+  .extra-right{
+    margin-right:10px;
+  }
+  .less-left{
+    margin-left:-8px;
+  }
+
+  .reduce-right{
+    margin-right:100px;
+  }
+  
+  .extra-bottom-margin{
+    margin-bottom:30px;
+  }
+  
