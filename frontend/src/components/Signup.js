@@ -12,7 +12,7 @@ function Signup(){
     const [domain_correct, setDomainCorrect] = useState(true);
     const [error, setError] = useState(false)
     const domains = {
-        "utoronto":"University of Toronto"
+        "msh":"Markham Stouffville Hospital"
     }
     const navigate = useNavigate();
 
