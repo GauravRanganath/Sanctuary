@@ -8,13 +8,12 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Autocomplete from "@mui/material/Autocomplete";
-import Axios from "axios";
+import axios from "axios";
 import { json, useNavigate } from "react-router-dom";
 import "../view-requests.css";
-import { request } from "http";
 
 function ViewRequests() {
-  const [requests, setRequests] = useState({});  
+  const [requests, setRequests] = useState([]);  
   const sample = {
       "_id": "63ccd86f53d74eafd3cdede6",
       "summary": "rama was here",
@@ -26,25 +25,44 @@ function ViewRequests() {
       "updatedAt": "2023-01-22T06:32:15.723Z",
       "__v": 0
   }
+
+  const getRequests = async () => {
+    await axios.get("http://localhost:8082/api/data/allRequestData").then((resp) => {
+      setRequests(resp.data);
+    });
+  }
+
+  useEffect(() => {
+    getRequests();
+  }, []);
+
   return (
     <div>
+      {console.log(requests)}
       <NavBar></NavBar>
       <Container className="reduce-right">
         <br></br>
         <h1 className="extra-bottom-margin">Request Data</h1>
         <hr />
+        <div className="less-left">
         {
-          requests.map((request) => {
-            <Row>
-              <div class="main_example_code give_margin give_top_padding">
-                <div id="title_div" class="give_margin">
-                  <h2>{request.name}</h2>
+          requests.map((request) => 
+              <Row>
+                <div class="main_example_code give_margin give_top_padding">
+                  <div id="title_div" class="give_margin">
+                    <h2>{request.name}</h2>
+                    <p>{request.summary}</p>
+                    {
+                      request.tags.map((tag) =>
+                        <Chip label={request.name} sx={{fontWeight:600, bgcolor:"#2074d4"}} color="primary" className="extra-right"/>
+                      )
+                    }
+                  </div>
                 </div>
-              </div>
-            </Row>
-          })
+              </Row>
+          )
         }
-        <Row>
+        {/* <Row>
           <div class="main_example_code give_margin give_top_padding">
             <div id="title_div" class="give_margin">
               <h2>PlayCreator Library Examples</h2>
@@ -94,7 +112,8 @@ function ViewRequests() {
               <Chip label="Apples and Oranges" sx={{fontWeight:600, bgcolor:"#2074d4"}} color="primary" className="extra-right"/>
             </div>
           </div>
-        </Row>
+        </Row> */}
+        </div>
       </Container>
     </div>
   );

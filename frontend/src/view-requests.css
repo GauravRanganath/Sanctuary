@@ -24,6 +24,9 @@
   .extra-right{
     margin-right:10px;
   }
+  .less-left{
+    margin-left:-8px;
+  }
 
   .reduce-right{
     margin-right:100px;

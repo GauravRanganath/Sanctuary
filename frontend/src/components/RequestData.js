@@ -92,7 +92,7 @@ function RequestData() {
                 "tags": reqCategories
               }
               const resp = await Axios.post("http://localhost:8082/api/data/newRequestData", body)
-              navigate("/view-request-data")
+              navigate("/view-requests")
             }}>Submit</Button>
           </Col>
         </Row>
