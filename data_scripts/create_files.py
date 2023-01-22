@@ -1,6 +1,6 @@
 import random
-fileNames = ['rama15-rama11-rama12-rama13.txt',
-             'rama14-rama11-rama12-rama13.txt']
+
+fileNames = ['heart_disease-female-age60-asian.txt']
 
 for x in fileNames:
     fileName = './data/' + x
