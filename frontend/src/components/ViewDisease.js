@@ -226,10 +226,9 @@ function ViewDisease() {
             <Card>
               <Card.Header as="h5">{disease}</Card.Header>
               <Card.Body>
-                <Card.Title>Special title treatment</Card.Title>
+                <Card.Title>Cancer</Card.Title>
                 <Card.Text>
-                  With supporting text below as a natural lead-in to additional
-                  content.
+                  All the cancer data found for your request.
                 </Card.Text>
                 <Button variant="primary">Download Data</Button>
               </Card.Body>
