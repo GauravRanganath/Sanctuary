@@ -8,6 +8,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Autocomplete from "@mui/material/Autocomplete";
+import Axios from "axios";
+import { json, useNavigate } from "react-router-dom";
 
 const demographicCategories = [
   "Male",
@@ -34,7 +36,9 @@ const demographicCategories = [
 
 function RequestData() {
   const [reqCategories, setReqCategories] = useState([]);
-
+  const [summaryInput, setSummaryInput] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const navigate = useNavigate();
   return (
     <div>
       <NavBar></NavBar>
@@ -44,9 +48,19 @@ function RequestData() {
           <Col>
             <h1>Request Data</h1>
             <br />
+            <TextField
+            placeholder="Title"
+              fullWidth={true}
+              onChange={(event) => {
+                setNameInput(event.target.value);
+              }}
+            />
+            <br />
+            <br />
             <Autocomplete
               multiple
               id="tags-outlined"
+              placeholder="Tags"
               options={demographicCategories}
               getOptionLabel={(option) => option}
               defaultValue={[]}
@@ -63,9 +77,23 @@ function RequestData() {
               rows={10}
               maxRows={10}
               fullWidth={true}
+              onChange={(event) => {
+                setSummaryInput(event.target.value);
+              }}
             />
             <br/>
-            <Button onClick={console.log(reqCategories)}>Submit</Button>
+            <Button onClick={async (event) => {
+              console.log(nameInput);
+              console.log(reqCategories);
+              console.log(summaryInput);
+              let body = {
+                "summary": summaryInput,
+                "name": nameInput,
+                "tags": reqCategories
+              }
+              const resp = await Axios.post("http://localhost:8082/api/data/newRequestData", body)
+              navigate("/view-requests")
+            }}>Submit</Button>
           </Col>
         </Row>
         <br></br>
