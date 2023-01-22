@@ -7,6 +7,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
+import image_lung from "../img/lung_cancer.jpeg";
+import image_heart from "../img/heart_disease.jpeg";
+import image_osteoporosis from "../img/osteoporosis.jpeg";
 
 function ViewData() {
   // Retrieve Estuary files
@@ -51,6 +54,9 @@ function ViewData() {
           <Col>
             <Card>
               <Card.Body>
+                <Card.Img width="150" height="300" variant="top" src={image_lung} />
+                <br></br>
+                <br></br>
                 <Card.Title>Lung Cancer</Card.Title>
                 <Card.Text>
                   "Lung cancer, also known as lung carcinoma is a malignant lung tumor 
@@ -65,6 +71,9 @@ function ViewData() {
           <Col>
             <Card>
               <Card.Body>
+                <Card.Img width="150" height="300" variant="top" src={image_heart} />
+                  <br></br>
+                  <br></br>
                 <Card.Title>Heart Disease</Card.Title>
                 <Card.Text>
                   "Cardiovascular disease is a class of diseases that involve the heart or blood vessels.
@@ -80,6 +89,9 @@ function ViewData() {
           <Col>
             <Card>
               <Card.Body>
+                <Card.Img width="150" height="300" variant="top" src={image_osteoporosis} />
+                  <br></br>
+                  <br></br>
                 <Card.Title>Osteoporosis</Card.Title>
                 <Card.Text>
                   "Osteoporosis is a systemic skeletal disorder characterized by low bone mass, micro-architectural 
