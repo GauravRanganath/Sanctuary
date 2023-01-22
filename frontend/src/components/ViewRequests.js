@@ -54,7 +54,7 @@ function ViewRequests() {
                     <p>{request.summary}</p>
                     {
                       request.tags.map((tag) =>
-                        <Chip label={request.name} sx={{fontWeight:600, bgcolor:"#2074d4"}} color="primary" className="extra-right"/>
+                        <Chip label={tag} sx={{fontWeight:600, bgcolor:"#2074d4"}} color="primary" className="extra-right"/>
                       )
                     }
                   </div>
