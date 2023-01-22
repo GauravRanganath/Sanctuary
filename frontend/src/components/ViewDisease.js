@@ -333,7 +333,6 @@ function ViewDisease() {
           <br />
           <Row>
             <Col>
-              {maleAgeArr}
               <Card>
                 <LineChart
                   maleAgeArr={maleAgeArr}

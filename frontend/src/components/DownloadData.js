@@ -53,13 +53,13 @@ function DownloadData() {
       .get(
         "http://localhost:8082/api/data/records?sex=" +
           genderValue +
-          "&ethnicity=" +
+          "&race=" +
           ethnicityValue +
           "&disease=" +
           disease
       )
       .then((resp) => {
-        console.log(resp.data);
+        setDownloadData(resp.data);
       });
   }
 
