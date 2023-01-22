@@ -2,6 +2,7 @@
 
 const FormData = require('form-data')
 const express = require('express');
+const editJsonFile = require("edit-json-file");
 const dotenv = require('dotenv');
 const fs = require('fs');
 dotenv.config();
@@ -200,6 +201,52 @@ router.get('/records', async (req, res) => {
     res.send(result);
   });
 });
+
+router.post("/login", (req, res) => {
+  var username = req.body.username;
+  var password = req.body.password;
+  var log_in_attempt;
+  if (username=="admin@utoronto.ca" && password=="uofthacks"){
+    log_in_attempt = "success"
+  }
+  else{
+    log_in_attempt = "failure"
+  }
+  if (log_in_attempt=="success"){
+    var file = editJsonFile(`${__dirname}/login.json`);
+    file.set("logged_in", true)
+    file.save()
+  }
+  res.send(log_in_attempt);
+})
+
+router.get("/login_status", (req, res) => {
+  var jsonString = JSON.parse(fs.readFileSync(`${__dirname}/login.json`))
+  res.send(jsonString.logged_in)
+})
+router.post("/login_status", (req, res) => {
+  var file = editJsonFile(`${__dirname}/login.json`);
+  var jsonString = JSON.parse(fs.readFileSync(`${__dirname}/login.json`))
+  var logged_in = jsonString.logged_in
+  if (logged_in==false){
+    file.set("logged_in", true)
+  }
+  file.save()
+  jsonString = JSON.parse(fs.readFileSync(`${__dirname}/login.json`))
+  res.send(jsonString.logged_in)
+})
+router.post("/signout", (req, res) => {
+  var file = editJsonFile(`${__dirname}/login.json`);
+  var jsonString = JSON.parse(fs.readFileSync(`${__dirname}/login.json`))
+  var logged_in = jsonString.logged_in
+  if (logged_in==true){
+    file.set("logged_in", false)
+  }
+  file.save()
+  jsonString = JSON.parse(fs.readFileSync(`${__dirname}/login.json`))
+  res.send(jsonString.logged_in)
+})
+
 
 // -------------------> Leaving code below for reference
 
