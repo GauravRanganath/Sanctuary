@@ -49,12 +49,11 @@ function ViewData() {
         <Row md={3}>
           <Col>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Alzeimhers</Card.Title>
+                <Card.Title>Lung Cancer</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  "Lung cancer, also known as lung carcinoma is a malignant lung tumor 
+                  characterized by uncontrolled cell growth in tissues of the lung."
                 </Card.Text>
                 <Button variant="primary">View Data</Button>
               </Card.Body>
@@ -62,12 +61,11 @@ function ViewData() {
           </Col>
           <Col>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Cancer</Card.Title>
+                <Card.Title>Heart Disease</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  "Cardiovascular disease is a class of diseases that involve the heart or blood vessels.
+                  For example angina and myocardial infarction."
                 </Card.Text>
                 <Button variant="primary">View Data</Button>
               </Card.Body>
@@ -75,12 +73,11 @@ function ViewData() {
           </Col>
           <Col>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Dementia</Card.Title>
+                <Card.Title>Osteoporosis</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  "Osteoporosis is a systemic skeletal disorder characterized by low bone mass, micro-architectural 
+                  deterioration of bone tissue leading to bone fragility."
                 </Card.Text>
                 <Button variant="primary">View Data</Button>
               </Card.Body>
