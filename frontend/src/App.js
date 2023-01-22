@@ -7,6 +7,7 @@ import UploadData from './components/UploadData';
 import ViewData from './components/ViewData';
 import ViewDisease from './components/ViewDisease';
 import RequestData from './components/RequestData';
+import ViewRequests from './components/ViewRequests';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/view-data' element={<ViewData />} />
           <Route path='/view-data/:disease' element={<ViewDisease/>} />
           <Route path='/request-data' element={<RequestData />} />
+          <Route path='/view-request-data' element={<ViewRequests />} />
         </Routes>
       </div>
     </Router>
