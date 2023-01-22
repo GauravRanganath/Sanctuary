@@ -5,6 +5,9 @@ const RequestDataSchema = new mongoose.Schema(
     summary: {
       type: String,
     },
+    name: {
+      type: String,
+    },
     tags: {
       type: Array,
     },
