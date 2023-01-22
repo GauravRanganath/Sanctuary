@@ -2,23 +2,14 @@ const mongoose = require("mongoose");
 
 const RequestDataSchema = new mongoose.Schema(
   {
-    description: {
+    summary: {
       type: String,
     },
-    disease: {
-      type: String,
+    tags: {
+      type: Array,
     },
-    sex: {
-      type: String,
-    },
-    age: {
-      type: String,
-    },
-    race: {
-      type: String,
-    }
   },
   { timestamps: true }
 );
 
-module.exports = Book = mongoose.model("book", BookSchema);
+module.exports = Book = mongoose.model("requestData", RequestDataSchema);
