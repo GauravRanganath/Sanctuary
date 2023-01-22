@@ -223,16 +223,6 @@ function ViewDisease() {
         <br />
         <Row>
           <Col>
-            <RotatingSquare
-              height="100"
-              width="100"
-              color="#007bff"
-              ariaLabel="rotating-square-loading"
-              strokeWidth="4"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={isSpinnerOn}
-            />
             <Card>
               <Card.Header as="h5">{disease}</Card.Header>
               <Card.Body>
@@ -244,6 +234,16 @@ function ViewDisease() {
                 <Button variant="primary">Download Data</Button>
               </Card.Body>
             </Card>
+            <RotatingSquare
+              height="200"
+              width="200"
+              color="#007bff"
+              ariaLabel="rotating-square-loading"
+              strokeWidth="4"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={isSpinnerOn}
+            />
           </Col>
         </Row>
         <br />
