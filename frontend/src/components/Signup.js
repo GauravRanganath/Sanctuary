@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 function Signup(){
     const [username, setUsername] = useState("sample")
     const [password, setPassword] = useState("sample")
+    const [domain_correct, setDomainCorrect] = useState(true);
     const [error, setError] = useState(false)
     const domains = {
         "utoronto":"University of Toronto"
@@ -19,15 +20,19 @@ function Signup(){
         event.preventDefault();
         console.log(username, password)
         var email_parts = username.split("@")
-        var domain_name = email_parts[-1].split(".")
-        if (domains.includes(domain_name)){
+        console.log(email_parts)
+        var domain_name = email_parts[email_parts.length - 1].split(".")[0]
+        console.log(domain_name)
+        if (domain_name in domains){
             const resp = await axios.post("http://localhost:8082/api/data/login", {
                 "username":username,
                 "password":password
             })
+            navigate("/");
         }
-        navigate("/");
-
+        else{
+            setDomainCorrect(false)
+        }
     }
 
     return (
@@ -47,6 +52,7 @@ function Signup(){
                             </h2>
                             <div className="mb-3">
                                 <Form>
+                                {domain_correct==true ? <></> : <p className='incorrect'><b>Please provide a verified hospital e-mail.</b></p>}
                                 <Form.Group className="mb-3" controlId="Name">
                                     <Form.Label className="text-center">Name</Form.Label>
                                     <Form.Control type="text" placeholder="Enter Name" />
@@ -56,15 +62,15 @@ function Signup(){
                                     <Form.Label className="text-center">
                                     Email address
                                     </Form.Label>
-                                    <Form.Control id="personal_email" type="email" placeholder="Enter email" onClick={(event, value) => setUsername(value)}/>
+                                    <Form.Control id="personal_email" type="email" placeholder="Enter email" onChange={(event) => setUsername(event.target.value)}/>
                                 </Form.Group>
                                 <Form.Label className="text-center">Institution Name</Form.Label>
                                 <Autocomplete
                                     disablePortal
                                     id="combo-box-demo"
-                                    options={["University of Toronto", "Waterloo University", "Stanford University", "Harvard University", "McMaster University"]}
+                                    options={["Toronto General Hospital", "St Michael's Hospital", "Markham Stouffville Hospital", "Mount Sinai Hospital", "Simon Fraser Hospital"]}
                                     fullWidth={true}
-                                    renderInput={(params) => <TextField {...params} label="University Name" size="small"/>}
+                                    renderInput={(params) => <TextField {...params} size="small"/>}
                                     className="autocomplete"
                                 />
                                 <Form.Group
@@ -79,7 +85,7 @@ function Signup(){
                                     controlId="formBasicPassword"
                                 >
                                     <Form.Label>Confirm Password</Form.Label>
-                                    <Form.Control type="password" placeholder="Password" onChange={(event, value) => setPassword(value)}/>
+                                    <Form.Control type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
                                 </Form.Group>
                                 <Form.Group
                                     className="mb-3"
@@ -94,7 +100,7 @@ function Signup(){
                                 <div className="mt-3">
                                 <p className="mb-0  text-center">
                                     Already have an account?{' '}
-                                    <a href="{''}" className="text-primary fw-bold">
+                                    <a href="/login" className="text-primary fw-bold">
                                     Sign In
                                     </a>
                                 </p>

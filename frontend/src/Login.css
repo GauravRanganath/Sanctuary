@@ -38,3 +38,11 @@
     font-weight: 600;
     color: rgb(34, 34, 34);
   }
+
+.incorrect {
+  color: red;
+}
+
+.signup {
+  margin-top: -5px;
+}

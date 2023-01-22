@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function NewSignup() {
   const [username, setUsername] = useState("sample");
   const [password, setPassword] = useState("sample");
   const [error, setError] = useState(false);
@@ -20,9 +20,8 @@ function Signup() {
   };
   const navigate = useNavigate();
 
-  const signup = async (event) => {
-    event.preventDefault();
-    console.log(username, password);
+  const signup = async () => {
+    console.log(test, "test");
     var email_parts = username.split("@");
     var domain_name = email_parts[-1].split(".");
     if (domains.includes(domain_name)) {
@@ -46,11 +45,11 @@ function Signup() {
             onChange={(event) => {setTest(event.target.value)}}
           />
 
-          <Button onClick={() => {console.log(test)}}>Submit</Button>
+          <Button onClick={signup}>Submit</Button>
         </Container>
       </div>
     </div>
   );
 }
 
-export default Signup;
+export default NewSignup;

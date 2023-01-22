@@ -212,6 +212,7 @@ router.post("/login", (req, res) => {
   else{
     log_in_attempt = "failure"
   }
+  console.log(log_in_attempt, "aefsawiuQB")
   if (log_in_attempt=="success"){
     var file = editJsonFile(`${__dirname}/login.json`);
     file.set("logged_in", true)

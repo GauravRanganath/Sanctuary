@@ -4,3 +4,6 @@
 .autocomplete{
     margin-bottom: 10px;
 }
+.incorrect{
+    color: red;
+}
