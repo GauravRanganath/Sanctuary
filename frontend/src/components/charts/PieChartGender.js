@@ -1,22 +1,26 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
-const data = {
-  labels: ["Female", "Male"],
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [12, 19],
-      backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
-      borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
-      borderWidth: 1,
-    },
-  ],
-};
-const PieChartGender = () => {
+const PieChartGender = ({ genderArr }) => {
   return (
     <div>
-      <Pie data={data} />
+      <Pie
+        data={{
+          labels: ["Male", "Female"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: genderArr,
+              backgroundColor: [
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 99, 132, 0.2)",
+              ],
+              borderColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)"],
+              borderWidth: 1,
+            },
+          ],
+        }}
+      />
     </div>
   );
 };

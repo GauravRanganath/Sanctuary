@@ -1,12 +1,16 @@
 import React from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
-const data = {
+
+const PieChartGender = ({ethnicityArr}) => {
+  return (
+    <div>
+      <Pie data={{
   labels: ['Caucasian', 'African American', 'Asian', 'Native American', 'Hispanic', 'Pacific Islander'],
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: ethnicityArr,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -26,11 +30,7 @@ const data = {
       borderWidth: 1,
     },
   ],
-};
-const PieChartGender = () => {
-  return (
-    <div>
-      <Pie data={data} />
+}} />
     </div>
   );
 };
