@@ -21,6 +21,8 @@ import { useNavigate } from "react-router-dom";
 const pages = [
   { title: "Upload Data", nav: "/upload-data" },
   { title: "View Data", nav: "/view-data" },
+  { title: "Add Request", nav: "/request-data" },
+  { title: "View Requests", nav: "/view-requests" },
 ];
 
 //const pages = ['Upload Data', 'View Data'];
