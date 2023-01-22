@@ -44,10 +44,6 @@ function DownloadData() {
       });
   };
 
-  function downloadContent(cid) {
-    axios.get("https://api.estuary.tech/gw/ipfs/" + cid);
-  }
-
   function downloadFilteredCid() {
     axios
       .get(
@@ -98,9 +94,7 @@ function DownloadData() {
                       <TableCell align="right" component="th" scope="row">
                         <Button
                           variant="text"
-                          onClick={() => {
-                            downloadContent(downloadDatum[0]);
-                          }}
+                          href={"https://api.estuary.tech/gw/ipfs/" + downloadDatum[0]}
                         >
                           Download
                         </Button>

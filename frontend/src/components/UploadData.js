@@ -24,6 +24,7 @@ function UploadData() {
   }
 
   const handleSubmit = async (event) => {
+    alert("File Uploaded");
     event.preventDefault();
 
     const formData = new FormData();
