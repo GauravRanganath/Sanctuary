@@ -231,7 +231,7 @@ router.post("/login", (req, res) => {
   var username = req.body.username;
   var password = req.body.password;
   var log_in_attempt;
-  if (username=="admin@utoronto.ca" && password=="uofthacks"){
+  if (username=="admin@msh.ca" && password=="uofthacks"){
     log_in_attempt = "success"
   }
   else{

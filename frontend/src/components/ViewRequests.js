@@ -14,22 +14,44 @@ import "../view-requests.css";
 
 function ViewRequests() {
   const [requests, setRequests] = useState([]);  
-  const sample = {
-      "_id": "63ccd86f53d74eafd3cdede6",
-      "summary": "rama was here",
-      "name": "rama",
+  const sample = [
+    {
+        "_id": "63ccd86f53d74eafd3cdede6",
+        "summary": "Proposal: The dataset consists of a sample of male patients diagnosed with osteoporosis. Osteoporosis is a condition characterized by a loss of bone density and an increased risk of fractures, and it is more commonly seen in women than men. The dataset includes demographic information such as age, weight, and height as well as clinical data such as bone density measurements, past medical history, and current medications. Additionally, the dataset also includes information on any fractures or falls experienced by the patients. This dataset can be useful for researchers studying the risk factors and outcomes associated with osteoporosis in men, and for developing targeted treatment and prevention strategies.",
+        "name": "Demographic and Clinical Characteristics of Male Patients with Osteoporosis",
+        "tags": [
+            "Male",
+            "Osteoporosis"
+        ],
+    },
+    {
+        "_id": "63ccf9b64d204551424d6f3b",
+        "summary": "Proposal: The dataset consists of a sample of female patients diagnosed with heart disease. Heart disease is a general term used to describe a range of conditions that affect the heart and blood vessels, and it is a leading cause of death in women. The dataset includes demographic information such as age, weight, and height as well as clinical data such as blood pressure, cholesterol levels, past medical history, and current medications. Additionally, the dataset also includes information on lifestyle factors such as smoking status, diet, and physical activity levels. This dataset can be useful for researchers studying the risk factors and outcomes associated with heart disease in women, and for developing targeted prevention and treatment strategies.",
+        "name": "Demographic and Clinical Characteristics of Female Patients with Heart Disease",
+        "tags": [
+            "Female",
+            "Heart Disease"
+        ],
+    },
+    {
+      "_id": "63ccf9b64d204551424d6f3b",
+      "summary": "Proposal: The dataset consists of a sample of male patients diagnosed with leukemia, between the ages of 13 and 24. Leukemia is a type of cancer that affects the blood and bone marrow, and it is one of the most common types of cancer in children and young adults. The dataset includes demographic information such as age, weight, and height as well as clinical data such as blood test results, bone marrow biopsy results, and current treatment information. Additionally, the dataset also includes information on any previous cancer treatments or medical history. This dataset can be useful for researchers studying the incidence and outcomes of leukemia in young males, as well as for developing targeted treatment strategies for this population.",
+      "name": "Demographic and Clinical Characteristics of Male Patients Aged 13-24 with Leukemia",
       "tags": [
-          "Male"
+          "Male",
+          "Leukemia",
+          "13-24"
       ],
-      "createdAt": "2023-01-22T06:32:15.723Z",
-      "updatedAt": "2023-01-22T06:32:15.723Z",
-      "__v": 0
-  }
+    }
+]
 
-  const getRequests = async () => {
-    await axios.get("http://localhost:8082/api/data/allRequestData").then((resp) => {
-      setRequests(resp.data);
-    });
+  // const getRequests = async () => {
+  //   await axios.get("http://localhost:8082/api/data/allRequestData").then((resp) => {
+  //     setRequests(resp.data);
+  //   });
+  // }
+  const getRequests = () => {
+    setRequests(sample)
   }
 
   useEffect(() => {
