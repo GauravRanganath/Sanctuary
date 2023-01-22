@@ -103,5 +103,5 @@ for x in fileNames:
         
         print("Done!")
         
-        # put a timer
-        time.sleep(5)
+    # put a timer
+    time.sleep(5)
