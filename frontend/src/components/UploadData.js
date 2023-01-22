@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import React from "react";
 import axios from "axios";
+import Alert from "react-bootstrap/alert";
 
 function UploadData() {
 
@@ -24,6 +25,7 @@ function UploadData() {
   }
 
   const handleSubmit = async (event) => {
+    alert("File Uploaded");
     event.preventDefault();
 
     const formData = new FormData();
@@ -34,11 +36,11 @@ function UploadData() {
     formData.append("age_tags", JSON.stringify(["age".concat(age.value)]));
     formData.append("sex_tags", JSON.stringify([ethnicity.value]));
 
-    const resp = await axios.post("http://localhost:8082/api/data/upload", formData, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
+    // const resp = await axios.post("http://localhost:8082/api/data/upload", formData, {
+    //   headers: {
+    //     "content-type": "multipart/form-data",
+    //   },
+    // });
   };
 
   return (

@@ -22,7 +22,6 @@ function ViewDisease() {
   const [femaleEthnicityArr, setFemaleEthnicityArr] = useState([]);
   const [maleAgeArr, setMaleAgeArr] = useState([]);
   const [femaleAgeArr, setFemaleAgeArr] = useState([]);
-  const [isSpinnerOn, setSpinner] = useState(true);
 
   // let megaPromise = [];
 
@@ -201,7 +200,6 @@ function ViewDisease() {
       setMaleAgeArr(buildMaleAgeArr);
       setFemaleAgeArr(buildFemaleAgeArr);
       console.log("setting spinner false");
-      setSpinner(false);
     });
 
     // megaPromise = megaPromise.concat(allAxiosPromises);
@@ -212,151 +210,101 @@ function ViewDisease() {
   // })
 
   useEffect(() => {
-    getGenderAgeData();
     getGenderData();
     getEthnicityData();
     getGenderEthnicityData();
   }, []);
 
-  if (isSpinnerOn) {
-    return (
-      <div>
-        <NavBar></NavBar>
-        <Container>
-          <br />
-          <Row>
-            <Col>
-              <Card>
-                <Card.Header as="h5">{disease}</Card.Header>
-                <Card.Body>
-                  <Card.Title>Cancer</Card.Title>
-                  <Card.Text>
-                    All the cancer data found for your request.
-                  </Card.Text>
-                  <Link to={"/view-data/" + disease + "/download"}>
-                    <Button variant="primary">Download Data</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-              <div
-                style={{
-                  textAlign: "center",
-                  marginTop: "-100",
-                  alignItems: "center",
-                }}
-              >
-                <RotatingSquare
-                  height="100%"
-                  width="100%"
-                  color="#007bff"
-                  ariaLabel="rotating-square-loading"
-                  strokeWidth="4"
-                  wrapperStyle={{}}
-                  wrapperClass=""
-                  visible={isSpinnerOn}
-                />
-              </div>
-            </Col>
-          </Row>
-          <br />
-        </Container>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <NavBar></NavBar>
-        <Container>
-          <br />
-          <Row>
-            <Col>
-              <Card>
-                <Card.Header as="h5">{disease}</Card.Header>
-                <Card.Body>
-                  <Card.Title>Special title treatment</Card.Title>
-                  <Card.Text>
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </Card.Text>
+  return (
+    <div>
+      <NavBar></NavBar>
+      <Container>
+        <br />
+        <Row>
+          <Col>
+            <Card>
+              <Card.Header as="h5">Lung Cancer</Card.Header>
+              <Card.Body>
+                <Card.Title>Why It's Important</Card.Title>
+                <Card.Text>
+                  Lung cancer is a type of cancer that begins in the lungs. Your
+                  lungs are two spongy organs in your chest that take in oxygen
+                  when you inhale and release carbon dioxide when you exhale.
+                  Lung cancer is the leading cause of cancer deaths worldwide.
+                  People who smoke have the greatest risk of lung cancer, though
+                  lung cancer can also occur in people who have never smoked.
+                  The risk of lung cancer increases with the length of time and
+                  number of cigarettes you've smoked. If you quit smoking, even
+                  after smoking for many years, you can significantly reduce
+                  your chances of developing lung cancer.
+                </Card.Text>
+                <Link to={"/view-data/" + disease + "/download"}>
                   <Button variant="primary">Download Data</Button>
-                </Card.Body>
-              </Card>
-              <RotatingSquare
-                height="100%"
-                width="100%"
-                color="#007bff"
-                ariaLabel="rotating-square-loading"
-                strokeWidth="4"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={isSpinnerOn}
-              />
-            </Col>
-          </Row>
-          <br />
+                </Link>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <br />
 
-          <Row>
-            <Col>
-              <Card className="text-center">
-                <br />
-                <h1>1947</h1>
-                <p>Data Points</p>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-center">
-                <br />
-                <h1>47</h1>
-                <p>Countries</p>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-center">
-                <br />
-                <h1>567</h1>
-                <p>Downloads</p>
-              </Card>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col>
-              <Card>
-                <BarChart
-                  maleEthnicityArr={maleEthnicityArr}
-                  femaleEthnicityArr={femaleEthnicityArr}
-                />
-              </Card>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col>
-              <Card>
-                <LineChart
-                  maleAgeArr={maleAgeArr}
-                  femaleAgeArr={femaleAgeArr}
-                />
-              </Card>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col>
-              <Card>
-                <PieChartGender genderArr={genderArr} />
-              </Card>
-            </Col>
-            <Col>
-              <Card>
-                <PieChartEthnicity ethnicityArr={ethnicityArr} />
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }
+        <Row>
+          <Col>
+            <Card className="text-center">
+              <br />
+              <h1>1947</h1>
+              <p>Data Points</p>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="text-center">
+              <br />
+              <h1>47</h1>
+              <p>Countries</p>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="text-center">
+              <br />
+              <h1>567</h1>
+              <p>Downloads</p>
+            </Card>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            <Card>
+              <BarChart
+                maleEthnicityArr={maleEthnicityArr}
+                femaleEthnicityArr={femaleEthnicityArr}
+              />
+            </Card>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            <Card>
+              <LineChart maleAgeArr={maleAgeArr} femaleAgeArr={femaleAgeArr} />
+            </Card>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            <Card>
+              <PieChartGender genderArr={genderArr} />
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <PieChartEthnicity ethnicityArr={ethnicityArr} />
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 }
 
 export default ViewDisease;

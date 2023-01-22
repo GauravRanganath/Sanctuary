@@ -17,8 +17,8 @@ function ViewRequests() {
   const sample = [
     {
         "_id": "63ccd86f53d74eafd3cdede6",
-        "summary": "Proposal: The dataset consists of a sample of male patients diagnosed with osteoporosis. Osteoporosis is a condition characterized by a loss of bone density and an increased risk of fractures, and it is more commonly seen in women than men. The dataset includes demographic information such as age, weight, and height as well as clinical data such as bone density measurements, past medical history, and current medications. Additionally, the dataset also includes information on any fractures or falls experienced by the patients. This dataset can be useful for researchers studying the risk factors and outcomes associated with osteoporosis in men, and for developing targeted treatment and prevention strategies.",
-        "name": "Demographic and Clinical Characteristics of Male Patients with Osteoporosis",
+        "summary": "Demo Description",
+        "name": "Demo Title",
         "tags": [
             "Male",
             "Osteoporosis"
