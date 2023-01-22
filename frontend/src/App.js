@@ -19,7 +19,7 @@ const App = () => {
           <Route path='/view-data' element={<ViewData />} />
           <Route path='/view-data/:disease' element={<ViewDisease/>} />
           <Route path='/request-data' element={<RequestData />} />
-          <Route path='/view-request-data' element={<ViewRequests />} />
+          <Route path='/view-requests' element={<ViewRequests />} />
         </Routes>
       </div>
     </Router>
