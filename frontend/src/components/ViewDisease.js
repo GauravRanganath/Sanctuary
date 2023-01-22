@@ -20,38 +20,6 @@ function ViewDisease() {
   const [maleAgeArr, setMaleAgeArr] = useState([]);
   const [femaleAgeArr, setFemaleAgeArr] = useState([]);
 
-  const getGenderAgeData = async () => {
-    let buildMaleAgeArr = [];
-    let buildFemaleAgeArr = [];
-    for (let i = 0; i <= 85; i++) {
-      axios
-        .get(
-          "http://localhost:8082/api/data/records?sex=male&age=age" +
-            i.toString() +
-            "&disease=" +
-            disease
-        )
-        .then((resp) => {
-          buildMaleAgeArr.push(resp.data.length);
-        })
-        .then(() => setMaleAgeArr(buildMaleAgeArr));
-    }
-
-    for (let i = 0; i <= 85; i++) {
-        axios
-          .get(
-            "http://localhost:8082/api/data/records?sex=female&age=age" +
-              i.toString() +
-              "&disease=" +
-              disease
-          )
-          .then((resp) => {
-            buildFemaleAgeArr.push(resp.data.length);
-          })
-          .then(() => setFemaleAgeArr(buildFemaleAgeArr));
-      }
-  };
-
   const getGenderEthnicityData = async () => {
     await axios
       .all([
@@ -59,32 +27,26 @@ function ViewDisease() {
           "http://localhost:8082/api/data/records?sex=male&race=caucasian&disease=" +
             disease
         ),
-
         axios.get(
           "http://localhost:8082/api/data/records?sex=male&race=african_american&disease=" +
             disease
         ),
-
         axios.get(
           "http://localhost:8082/api/data/records?sex=male&race=asian&disease=" +
             disease
         ),
-
         axios.get(
           "http://localhost:8082/api/data/records?sex=male&race=native&disease=" +
             disease
         ),
-
         axios.get(
           "http://localhost:8082/api/data/records?sex=male&race=hispanic&disease=" +
             disease
         ),
-
         axios.get(
           "http://localhost:8082/api/data/records?sex=male&race=pacific_islander&disease=" +
             disease
         ),
-
         axios.get(
           "http://localhost:8082/api/data/records?sex=female&race=caucasian&disease=" +
             disease
@@ -158,7 +120,8 @@ function ViewDisease() {
             disease
         ),
         axios.get(
-          "http://localhost:8082/api/data/records?race=asian&disease=" + disease
+          "http://localhost:8082/api/data/records?race=asian&disease=" + 
+            disease
         ),
         axios.get(
           "http://localhost:8082/api/data/records?race=native&disease=" +
@@ -184,6 +147,37 @@ function ViewDisease() {
           responseArr[5].data.length,
         ]);
       });
+  };
+
+  const getGenderAgeData = async () => {
+    let buildMaleAgeArr = [];
+    let buildFemaleAgeArr = [];
+    let urlsMale = [];
+    let urlsFemale = [];
+
+    for (let i = 0; i <= 85; i++) {
+      urlsMale.push(
+        "http://localhost:8082/api/data/records?sex=male&age=age" + i.toString() + "&disease=" + disease
+      );
+      urlsFemale.push(
+        "http://localhost:8082/api/data/records?sex=female&age=age" + i.toString() + "&disease=" + disease
+      );
+    }
+
+    const requestsMale = urlsMale.map((url) => axios.get(url));
+    axios.all(requestsMale).then((responses) => {
+      responses.forEach((resp) => {
+        buildMaleAgeArr.push(resp.data.length);
+      });
+    }).then(() => setMaleAgeArr(buildMaleAgeArr));
+
+    const requestsFemale = urlsFemale.map((url) => axios.get(url));
+    axios.all(requestsFemale).then((responses) => {
+      responses.forEach((resp) => {
+        buildFemaleAgeArr.push(resp.data.length);
+      });
+    }).then(() => setFemaleAgeArr(buildFemaleAgeArr));
+    
   };
 
   useEffect(() => {
