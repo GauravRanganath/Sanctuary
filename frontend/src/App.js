@@ -6,6 +6,7 @@ import Home from './components/Home';
 import UploadData from './components/UploadData';
 import ViewData from './components/ViewData';
 import ViewDisease from './components/ViewDisease';
+import DownloadData from './components/DownloadData';
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import NewSignup from "./components/NewSignUp";
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/upload-data' element={<UploadData />} />
           <Route path='/view-data' element={<ViewData />} />
           <Route path='/view-data/:disease' element={<ViewDisease/>} />
+          <Route path='/view-data/:disease/download' element={<DownloadData/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/newsignup" element={<NewSignup />} />
