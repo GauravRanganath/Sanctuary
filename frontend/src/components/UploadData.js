@@ -35,11 +35,11 @@ function UploadData() {
     formData.append("age_tags", JSON.stringify(["age".concat(age.value)]));
     formData.append("sex_tags", JSON.stringify([ethnicity.value]));
 
-    // const resp = await axios.post("http://localhost:8082/api/data/upload", formData, {
-    //   headers: {
-    //     "content-type": "multipart/form-data",
-    //   },
-    // });
+    const resp = await axios.post("http://localhost:8082/api/data/upload", formData, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
   };
 
   return (
