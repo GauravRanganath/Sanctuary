@@ -6,49 +6,198 @@ import PieChartEthnicity from "./charts/PieChartEthnicity";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import DescriptionCard from "./DescriptionCard";
 
 function ViewDisease() {
   const { disease } = useParams();
+  const [genderArr, setGenderArr] = useState([]);
+  const [ethnicityArr, setEthnicityArr] = useState([]);
+  const [maleEthnicityArr, setMaleEthnicityArr] = useState([]);
+  const [femaleEthnicityArr, setFemaleEthnicityArr] = useState([]);
+  const [maleAgeArr, setMaleAgeArr] = useState([]);
+  const [femaleAgeArr, setFemaleAgeArr] = useState([]);
 
-  axios
-    .all([
-      axios.get(
-        "http://localhost:8082/api/data/records?sex=male&disease=" + disease
-      ),
-      axios.get(
-        "http://localhost:8082/api/data/records?sex=female&disease=" + disease
-      ),
-    ])
-    .then((responseArr) => {
-      console.log(responseArr[0]);
-      console.log(responseArr[1]);
-    })
-    .then(() => {
+  const getGenderAgeData = async () => {
+    let buildMaleAgeArr = [];
+    let buildFemaleAgeArr = [];
+    for (let i = 0; i <= 85; i++) {
       axios
-        .all([
-          axios.get(
-            "http://localhost:8082/api/data/records?sex=male&disease=" + disease
-          ),
-          axios.get(
-            "http://localhost:8082/api/data/records?sex=female&disease=" +
+        .get(
+          "http://localhost:8082/api/data/records?sex=male&age=age" +
+            i.toString() +
+            "&disease=" +
+            disease
+        )
+        .then((resp) => {
+          buildMaleAgeArr.push(resp.data.length);
+        })
+        .then(() => setMaleAgeArr(buildMaleAgeArr));
+    }
+
+    for (let i = 0; i <= 85; i++) {
+        axios
+          .get(
+            "http://localhost:8082/api/data/records?sex=female&age=age" +
+              i.toString() +
+              "&disease=" +
               disease
-          ),
-        ])
-        .then((responseArr) => {
-          console.log(responseArr[0]);
-          console.log(responseArr[1]);
-        });
-    });
+          )
+          .then((resp) => {
+            buildFemaleAgeArr.push(resp.data.length);
+          })
+          .then(() => setFemaleAgeArr(buildFemaleAgeArr));
+      }
+  };
+
+  const getGenderEthnicityData = async () => {
+    await axios
+      .all([
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&race=caucasian&disease=" +
+            disease
+        ),
+
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&race=african_american&disease=" +
+            disease
+        ),
+
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&race=asian&disease=" +
+            disease
+        ),
+
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&race=native&disease=" +
+            disease
+        ),
+
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&race=hispanic&disease=" +
+            disease
+        ),
+
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&race=pacific_islander&disease=" +
+            disease
+        ),
+
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&race=caucasian&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&race=african_american&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&race=asian&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&race=native&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&race=hispanic&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&race=pacific_islander&disease=" +
+            disease
+        ),
+      ])
+      .then((responseArr) => {
+        setMaleEthnicityArr([
+          responseArr[0].data.length,
+          responseArr[1].data.length,
+          responseArr[2].data.length,
+          responseArr[3].data.length,
+          responseArr[4].data.length,
+          responseArr[5].data.length,
+        ]);
+        setFemaleEthnicityArr([
+          responseArr[6].data.length,
+          responseArr[7].data.length,
+          responseArr[8].data.length,
+          responseArr[9].data.length,
+          responseArr[10].data.length,
+          responseArr[11].data.length,
+        ]);
+      });
+  };
+
+  const getGenderData = async () => {
+    await axios
+      .all([
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=male&disease=" + disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?sex=female&disease=" + disease
+        ),
+      ])
+      .then((responseArr) => {
+        console.log(responseArr);
+        setGenderArr([responseArr[0].data.length, responseArr[1].data.length]);
+      });
+  };
+
+  const getEthnicityData = async () => {
+    const { data } = await axios
+      .all([
+        axios.get(
+          "http://localhost:8082/api/data/records?race=caucasian&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?race=african_american&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?race=asian&disease=" + disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?race=native&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?race=hispanic&disease=" +
+            disease
+        ),
+        axios.get(
+          "http://localhost:8082/api/data/records?race=pacific_islander&disease=" +
+            disease
+        ),
+      ])
+      .then((responseArr) => {
+        console.log(responseArr);
+        setEthnicityArr([
+          responseArr[0].data.length,
+          responseArr[1].data.length,
+          responseArr[2].data.length,
+          responseArr[3].data.length,
+          responseArr[4].data.length,
+          responseArr[5].data.length,
+        ]);
+      });
+  };
+
+  useEffect(() => {
+    getGenderAgeData();
+    getGenderData();
+    getEthnicityData();
+    getGenderEthnicityData();
+  }, []);
 
   return (
     <div>
       <NavBar></NavBar>
       <Container>
-        <br/>
+        <br />
         <Row>
           <Col>
             <Card>
@@ -64,7 +213,7 @@ function ViewDisease() {
             </Card>
           </Col>
         </Row>
-        <br/>
+        <br />
         <Row>
           <Col>
             <Card className="text-center">
@@ -92,7 +241,19 @@ function ViewDisease() {
         <Row>
           <Col>
             <Card>
-              <BarChart />
+              <BarChart
+                maleEthnicityArr={maleEthnicityArr}
+                femaleEthnicityArr={femaleEthnicityArr}
+              />
+            </Card>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col>
+            {maleAgeArr}
+            <Card>
+              <LineChart maleAgeArr={maleAgeArr} femaleAgeArr={femaleAgeArr} />
             </Card>
           </Col>
         </Row>
@@ -100,20 +261,12 @@ function ViewDisease() {
         <Row>
           <Col>
             <Card>
-              <LineChart />
-            </Card>
-          </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col>
-            <Card>
-              <PieChartGender />
+              <PieChartGender genderArr={genderArr} />
             </Card>
           </Col>
           <Col>
             <Card>
-              <PieChartEthnicity />
+              <PieChartEthnicity ethnicityArr={ethnicityArr} />
             </Card>
           </Col>
         </Row>
