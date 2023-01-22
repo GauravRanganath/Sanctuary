@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import DescriptionCard from "./DescriptionCard";
 
 function ViewDisease() {
   const { disease } = useParams();
@@ -46,7 +48,47 @@ function ViewDisease() {
     <div>
       <NavBar></NavBar>
       <Container>
-        {disease}
+        <br/>
+        <Row>
+          <Col>
+            <Card>
+              <Card.Header as="h5">{disease}</Card.Header>
+              <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Text>
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </Card.Text>
+                <Button variant="primary">Download Data</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <br/>
+        <Row>
+          <Col>
+            <Card className="text-center">
+              <br />
+              <h1>1947</h1>
+              <p>Data Points</p>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="text-center">
+              <br />
+              <h1>47</h1>
+              <p>Countries</p>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="text-center">
+              <br />
+              <h1>567</h1>
+              <p>Downloads</p>
+            </Card>
+          </Col>
+        </Row>
+        <br />
         <Row>
           <Col>
             <Card>
